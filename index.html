@@ -1,12 +1,69 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>House Paint App</title>
-  </head>
-  <body>
-    <h1>House Paint App</h1>
-    <p>Pages is working.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Paint Preview</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+    <header class="app-header">
+      <h1>House Paint Preview</h1>
+    </header>
+
+    <main class="main-content">
+      <div class="controls-panel">
+        
+        <div class="control-group file-upload">
+          <label for="imageInput" class="custom-file-upload">
+            Upload Image
+          </label>
+          <input type="file" id="imageInput" accept="image/*">
+        </div>
+
+        <div class="control-group toggle-group">
+          <label>Mode:</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="modeExternalToggle">
+            <label for="modeExternalToggle" class="toggle-label">
+              <span class="toggle-option" id="opt-exterior">Exterior</span>
+              <span class="toggle-option" id="opt-interior">Interior</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="colorPicker">Paint Color:</label>
+          <input type="color" id="colorPicker" value="#3498db">
+        </div>
+
+        <div class="action-buttons">
+          <button id="btnMask" class="btn btn-primary" disabled>Mask House</button>
+          <button id="btnApply" class="btn btn-secondary" disabled>Apply Color</button>
+        </div>
+        
+        <div id="statusMessage" class="status-message"></div>
+
+      </div>
+
+      <div class="preview-panel">
+        <div class="canvas-wrapper">
+          <canvas id="mainCanvas"></canvas>
+          <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <span>Processing...</span>
+          </div>
+          <div id="placeholderText" class="placeholder-text">
+            Upload an image to get started
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
